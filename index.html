@@ -6,62 +6,76 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+
     <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
-    <link rel="stylesheet" href="http://materializecss.com/css/ghpages-materialize.css" >
+	<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,500|Roboto:300,400,500,600,700' rel='stylesheet' type='text/css'>
-	<script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
     <link rel="stylesheet" href="css/tanzy-switch.css" >  
-    <link rel="stylesheet" href="css/tanzy-animation.css" >  	
+    <link rel="stylesheet" href="css/tanzy-animation.css" >
+    <link rel="stylesheet" href="css/tanzy-toast.css" >  	
     <script src="js/tanzy-switch.js" ></script>
-	<script src="js/tanzy-animation.js" ></script>
     <script src="js/tanzy-toast.js"></script>
 
+	  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+	
+	
 	<style>
 	
-	.multi-switch {
-    width: 46px;
-    user-select: none;
-    -webkit-backface-visibility: hidden;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-}
-	
-	body {
-    margin: 15px;
-    background: rgba(232, 232, 232, 0.73);
+	hr {
+		box-sizing: content-box;
+		height: 0;
+		padding: 0;
+		border: 1px solid #eeeeee;
 	}
 	
+	.multi-switch {
+		width: 43px;
+		user-select: none;
+		-webkit-backface-visibility: hidden;
+		-webkit-touch-callout: none;
+		-webkit-user-select: none;
+		-khtml-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+	}
+	
+body {
+    margin: 0px;
+    padding: 0;
+    /* background: rgba(232, 232, 232, 0.73); */
+}
+	
 	*{
-	padding:5px;
-	font-weight:300;
+		padding:5px;
+		font-weight:300;
 	}
 	
 	.mainHeader {
-    color: #f35626;
-    background-image: -webkit-linear-gradient(#FFEB3B,#ff1100,black);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+		color: #f35626;
+		background-image: -webkit-linear-gradient(#FFEB3B,#ff1100,black);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
 	}
 	
 	
 	.fiftyPer {
-    float: left;
-    width: 45%;
-    margin: auto;
-    text-align: center;
-    background: white;
-    margin-left: 14px;
-    margin: auto;
-    margin-left: 45px;
-    border: 1px solid #ffffff;
-    border-radius: 3px;
-    padding: 25px;
-    box-shadow: 0px 3px 3px -1px rgba(128, 128, 128, 0.64);
+		float: left;
+		width: 45%;
+		margin: auto;
+		text-align: center;
+		background: white;
+		margin-left: 14px;
+		margin: auto;
+		margin-left: 45px;
+		border: 1px solid #ffffff;
+		border-radius: 3px;
+		padding: 25px;
+		box-shadow: 0px 3px 3px -1px rgba(128, 128, 128, 0.64);
 	}
 	</style>
 	
@@ -73,8 +87,9 @@
     <h6 style="font-weight:300;top:0px">Developing awesome UI for both the world </h4>
 </center>
   
-<section class="slideInDown ">
-<div class="fiftyPer slideInUp "> <div><b> Toggle-switch</b> with Confirmation </div>
+<section class="">
+<div class="fiftyPer animated slideInUp "> <div><b> Toggle-switch</b> with Confirmation </div>
+<hr>
 <center>
 <div>
     <input type="checkbox" class="multi-switch" value="1" unchecked-value="0"  checked-value="1" >
@@ -94,7 +109,85 @@
 				  
 
 </div>
-<div class="fiftyPer slideInUp "> comming soon..</div>
+<div class="fiftyPer animated slideInUp "> 
+ <div><b> Toast</b> with colors </div>
+<hr>
+<center>
+<div>
+<div id="toastem"></div>
+
+  <center >
+    <select style="display:block" id="alertSelect">
+      <option value="normal" selected disabled>Choose alert type</option>
+      <option value="success">Success</option>
+      <option value="danger">Danger</option>
+      <option value="info">Info</option>
+	  <option value="normal">Normal</option>
+    </select>
+
+  </center>
+  
+<br/>
+<br/>
+
+
+    <input type="text" id="inputmsg" value="Everything is saved!" >
+	<input type="submit" id="run" class="btn btn-danger" value="RUN">
+</div>
+
+
+
+<small >KEY-COLORS followed by functions <br>success_alert : <b style="color:green">Green</b> | danger_alert : <b style="color:red">Red</b>| info_alert : <b style="color:blue">Blue</b> |  normal_alert:<b style="black" >Black</b></small>
+</center>
+
+<script>
+
+$('#run').click(function(){
+	
+var msg = $('#inputmsg').val();
+var alertSelect = $('#alertSelect').val();
+
+
+if(alertSelect=='success'){
+success_alert(msg);
+}else if(alertSelect=='danger'){
+danger_alert(msg);
+}else if(alertSelect=='info'){
+info_alert(msg);
+}else if(alertSelect=='normal'){
+normal_alert(msg);
+}else{
+normal_alert(msg);
+}
+
+
+
+});
+
+</script>
+
+
+</div>
+
+
+<!-- Third -->
+
+<div class="fiftyPer animated slideInUp "> 
+ <center>
+<div>
+Comming soon...
+
+</div>
+</div>
+
+
+	
+
+
+
+
+
+
 </section>
   
   
