@@ -8,7 +8,6 @@
     <!-- Compiled and minified CSS -->
 
     <!-- Compiled and minified JavaScript -->
-	<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
 	<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
 
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,500|Roboto:300,400,500,600,700' rel='stylesheet' type='text/css'>
@@ -96,20 +95,21 @@ body {
     <input type="checkbox" class="multi-switch" value="1" unchecked-value="0"  checked-value="1" >
 </div>
 <small > Confirmation-alert will show on turning OFF the switch</small>
+
 </center>
+<script>
 
-  <script>
-	  //for only one $('.multi-switch').multiSwitch();
-
-	  $('.multi-switch').multiSwitch({
-		  functionOnChange: function ($element) {
+  $('.multi-switch').multiSwitch({
+	  functionOnChange: function ($element) {
 			  // do something here
-		  }
-	  });
-  </script>
-				  
-
+	  }
+  });
+  
+</script>
 </div>
+
+
+
 <div class="fiftyPer animated slideInUp "> 
  <div><b> Toast</b> with colors </div>
 <hr>
