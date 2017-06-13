@@ -11,7 +11,7 @@
     }
 
 
-    function error_alert(msg) {
+    function danger_alert(msg) {
       var item1 = $('<div class="notification error"><span>' + msg + '</span></div>');
       $("#toastem").append($(item1));
       $(item1).animate({"right": "12px"}, "fast");
