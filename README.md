@@ -1,2 +1,2 @@
 # tanzy
-A css file for you..
+a simple css
