@@ -1,3 +1,3 @@
-# tanzy - https://kaleem9.github.io/tanzy/
+# tanzy - https://kaleem-elahi.github.io/tanzy/
 
 #html #css #javascript 
